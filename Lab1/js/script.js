@@ -75,7 +75,7 @@ function triangle(value1, type1, value2, type2) {
         console.log("Кут не може бути більший за 90 чи дорівнювати йому. ПЕРЕЧИТАЙ ІНСТРУКЦІЮ!");
         return "failed";
     }
-    
+
     console.log(`a = ${leg1.toFixed(3)}`);
     console.log(`b = ${leg2.toFixed(3)}`);
     console.log(`c = ${hypotenuse.toFixed(3)}`);
@@ -83,9 +83,3 @@ function triangle(value1, type1, value2, type2) {
     console.log(`beta = ${beta.toFixed(3)}°`);
     return "success";
 }
-
-console.log(triangle(7, "leg", 18, "hypotenuse"));
-console.log(triangle(60, "opposite angle", 5, "leg"));
-console.log(triangle(43.13, "angle", -2, "hypotenuse"));
-console.log(triangle(10000, "angle", 508989, "hypotenuse"));
-console.log(triangle(1, "", 1, ""));
