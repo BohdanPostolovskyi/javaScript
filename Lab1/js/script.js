@@ -68,11 +68,19 @@ function triangle(value1, type1, value2, type2) {
             return "failed";
     }
 
+    let alpha = radToDeg(angle1);
+    let beta = radToDeg(angle2);
+
+    if (alpha >= 90 || beta >= 90) {
+        console.log("Кут не може бути більший за 90 чи дорівнювати йому. ПЕРЕЧИТАЙ ІНСТРУКЦІЮ!");
+        return "failed";
+    }
+    
     console.log(`a = ${leg1.toFixed(3)}`);
     console.log(`b = ${leg2.toFixed(3)}`);
     console.log(`c = ${hypotenuse.toFixed(3)}`);
-    console.log(`alpha = ${radToDeg(angle1).toFixed(3)}°`);
-    console.log(`beta = ${radToDeg(angle2).toFixed(3)}°`);
+    console.log(`alpha = ${alpha.toFixed(3)}°`);
+    console.log(`beta = ${beta.toFixed(3)}°`);
     return "success";
 }
 
