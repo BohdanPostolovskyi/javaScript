@@ -60,20 +60,30 @@ function toggleLight() {
         let row = parseInt(this.dataset.row);
         let col = parseInt(this.dataset.col);
 
-        if (gameMatrix[row][col] === LIGHT_ON) {
-            gameMatrix[row][col] = LIGHT_OFF;
-            this.classList.remove('on');
-            this.classList.add('off');
-        } else {
-            gameMatrix[row][col] = LIGHT_ON;
-            this.classList.remove('off');
-            this.classList.add('on');
-        }
+        toggleCell(row, col);
+        toggleCell(row - 1, col);
+        toggleCell(row + 1, col);
+        toggleCell(row, col - 1);
+        toggleCell(row, col + 1);
 
         currentSteps++;
         checkWin();
     }
 }
+
+function toggleCell(row, col) {
+    if (row >= 0 && row < gameMatrix.length && col >= 0 && col < gameMatrix[0].length) {
+        if (gameMatrix[row][col] === LIGHT_ON) {
+            gameMatrix[row][col] = LIGHT_OFF;
+        } else {
+            gameMatrix[row][col] = LIGHT_ON;
+        }
+        let cell = document.querySelector(`div[data-row='${row}'][data-col='${col}']`);
+        cell.classList.toggle('on');
+        cell.classList.toggle('off');
+    }
+}
+
 
 function checkWin() {
     let isAllLightsOff = true;
