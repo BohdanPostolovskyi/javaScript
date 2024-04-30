@@ -1,45 +1,35 @@
-// Константи для стану світлодіодів
-const LIGHT_ON = 1;
-const LIGHT_OFF = 0;
+let LIGHT_ON = 1;
+let LIGHT_OFF = 0;
 
-// Глобальні змінні
-let gameMatrix; // матриця станів світлодіодів
-let minStepsRequired; // мінімальна кількість ходів для перемоги
-let currentSteps = 0; // поточна кількість ходів гравця
-let timer; // таймер гри
-let isGameWon = false; // флаг перемоги гравця
+let gameMatrix;
+let minStepsRequired;
+let currentSteps = 0;
+let timer;
+let isGameWon = false;
 
-// Функція, яка завантажує гру при запуску сторінки
 window.onload = function() {
     loadGame();
 }
 
-// Функція для завантаження гри
 function loadGame() {
-    // Зчитуємо дані з JSON файлу
-    $ajaxifyJS.sendGetRequest('game1.json', function(data) {
+    $ajaxifyJS.sendGetRequest(getRandomJsonFile(), function(data) {
         gameMatrix = data.matrix;
         minStepsRequired = data.minimumStepsRequired;
 
-        // Ініціалізуємо гру
         initGame();
     });
 }
 
-// Функція для ініціалізації гри
 function initGame() {
-    // Створюємо ігрове поле
     createGameBoard();
     
-    // Додаємо обробники подій для кнопок
     document.getElementById('restart-btn').addEventListener('click', restartGame);
     document.getElementById('new-game-btn').addEventListener('click', loadNewGame);
 }
 
-// Функція для створення ігрового поля
 function createGameBoard() {
     let gameContainer = document.getElementById('game-container');
-    gameContainer.innerHTML = ''; // Очищаємо контейнер
+    gameContainer.innerHTML = '';
     
     for (let i = 0; i < gameMatrix.length; i++) {
         for (let j = 0; j < gameMatrix[i].length; j++) {
@@ -58,13 +48,11 @@ function createGameBoard() {
     }
 }
 
-// Функція для перемикання стану світлодіода
 function toggleLight() {
     if (!isGameWon) {
         let row = parseInt(this.dataset.row);
         let col = parseInt(this.dataset.col);
 
-        // Змінюємо стан клітини
         if (gameMatrix[row][col] === LIGHT_ON) {
             gameMatrix[row][col] = LIGHT_OFF;
             this.classList.remove('on');
@@ -75,15 +63,11 @@ function toggleLight() {
             this.classList.add('on');
         }
 
-        // Збільшуємо лічильник ходів
         currentSteps++;
-
-        // Перевіряємо, чи гравець виграв
         checkWin();
     }
 }
 
-// Функція для перевірки перемоги
 function checkWin() {
     let isAllLightsOff = true;
     for (let i = 0; i < gameMatrix.length; i++) {
@@ -95,7 +79,6 @@ function checkWin() {
         }
     }
     if (isAllLightsOff) {
-        // Гравець виграв
         isGameWon = true;
         clearInterval(timer);
         if (currentSteps <= minStepsRequired) {
@@ -106,7 +89,6 @@ function checkWin() {
     }
 }
 
-// Функція для перезапуску гри
 function restartGame() {
     currentSteps = 0;
     isGameWon = false;
@@ -120,7 +102,6 @@ function getRandomJsonFile() {
     return jsonFiles[randomIndex];
 }
 
-// Функція для завантаження нової гри
 function loadNewGame() {
     currentSteps = 0;
     isGameWon = false;
