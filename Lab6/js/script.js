@@ -32,19 +32,26 @@ function createGameBoard() {
     gameContainer.innerHTML = '';
     
     for (let i = 0; i < gameMatrix.length; i++) {
+        let row = document.createElement('div');
+        row.classList.add('row');
+        
         for (let j = 0; j < gameMatrix[i].length; j++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
             cell.dataset.row = i;
             cell.dataset.col = j;
             cell.addEventListener('click', toggleLight);
+            
             if (gameMatrix[i][j] === LIGHT_ON) {
                 cell.classList.add('on');
             } else {
                 cell.classList.add('off');
             }
-            gameContainer.appendChild(cell);
+            
+            row.appendChild(cell);
         }
+        
+        gameContainer.appendChild(row);
     }
 }
 
