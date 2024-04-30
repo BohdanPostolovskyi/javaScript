@@ -15,7 +15,7 @@ function loadGame() {
     $ajaxifyJS.sendGetRequest(getRandomJsonFile(), function(data) {
         gameMatrix = data.matrix;
         minStepsRequired = data.minimumStepsRequired;
-        document.getElementById("minSteps").textContent = minStepsRequired;
+        document.getElementById("minSteps").textContent = "Мінімальна кількість кроків для перемоги: " + minStepsRequired;
 
         initGame();
     });
