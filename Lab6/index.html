@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lights Out</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Out Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Lights Out</h1>
-<p>Коротенькі правила гри...</p>
-<div id="game-container">
-    <!-- Сюди буде вставлятись ігрове поле -->
-</div>
-<div id="controls">
-    <button id="restart-btn">Restart</button>
-    <button id="new-game-btn">New Game</button>
-</div>
-<div id="status">
-    <!-- Тут будуть відображатись повідомлення про перемогу -->
-</div>
-<script src="js/AjaxMegaSuperParser.js"></script>
-<script src="js/script.js"></script>
+    <h1>Lights Out Game</h1>
+    <p>Короткі правила гри</p>
+    <div id="game-container"></div>
+    <div id="info">
+        <p id="timer">Час: 0:00</p>
+        <p id="steps">Кроки: 0</p>
+        <p id="minSteps">Мінімальна кількість кроків для перемоги: </p>
+        <button id="restart-btn">Перезапустити</button>
+        <button id="new-game-btn">Нова гра</button>
+    </div>
+
+    <script src="js/AjaxMegaSuperParser.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
