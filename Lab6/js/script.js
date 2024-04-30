@@ -133,8 +133,10 @@ function checkWin() {
 
 function restartGame() {
     currentSteps = 0;
+    document.getElementById("steps").textContent = `Кроки: ${currentSteps}`;
     isGameWon = false;
     clearInterval(timer);
+    document.getElementById("timer").textContent = "Час: 0:00";
     loadGame();
 }
 
@@ -150,8 +152,10 @@ function getRandomJsonFile() {
 function loadNewGame() {
     isRestart = true;
     currentSteps = 0;
-    isGameWon = false;
     clearInterval(timer);
+    document.getElementById("steps").textContent = `Кроки: ${currentSteps}`;
+    document.getElementById("timer").textContent = "Час: 0:00";
+    isGameWon = false;
     loadGame();
 }
 
