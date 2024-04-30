@@ -98,11 +98,13 @@ function checkWin() {
     if (isAllLightsOff) {
         isGameWon = true;
         clearInterval(timer);
-        if (currentSteps <= minStepsRequired) {
-            alert('Ви виграли!');
-        } else {
-            alert('Ви виграли, але можна було краще!');
-        }
+        setTimeout(function() {
+            if (currentSteps <= minStepsRequired) {
+                alert('Ви виграли!');
+            } else {
+                alert('Ви виграли, але можна було краще!');
+            }
+        }, 100);
     }
 }
 
