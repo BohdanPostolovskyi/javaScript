@@ -1,6 +1,6 @@
 (function (global) {
     
-    let ajaxifyJS = {}
+    let AjaxMegaSuperParser = {}
 
     function getRequestObject() {
         if(global.XMLHttpRequest) {
@@ -12,7 +12,7 @@
         }
     }
 
-    ajaxifyJS.sendGetRequest = function (requestUrl, responseHandler, isJsonResponse) {
+    AjaxMegaSuperParser.sendGetRequest = function (requestUrl, responseHandler, isJsonResponse) {
         let request = getRequestObject();
         request.onreadystatechange = function() {
             handleResponse(request, responseHandler, isJsonResponse);
@@ -35,6 +35,6 @@
         }
     }
 
-    global.$ajaxifyJS = ajaxifyJS;
+    global.$AjaxMegaSuperParser = AjaxMegaSuperParser;
 
 })(window)
