@@ -16,7 +16,7 @@ window.onload = function() {
 
 function loadGame() {
         getRandomJsonFile();
-        $ajaxifyJS.sendGetRequest(currentMatrix, function(data) {
+        $AjaxMegaSuperParser.sendGetRequest(currentMatrix, function(data) {
         gameMatrix = data.matrix;
         minStepsRequired = data.minimumStepsRequired;
         document.getElementById("minSteps").textContent = "Мінімальна кількість кроків для перемоги: " + minStepsRequired;
