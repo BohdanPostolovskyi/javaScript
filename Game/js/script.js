@@ -43,7 +43,7 @@ function preload() {
 function create() {
     this.add.image(640, 295, 'background');
 
-    player = this.physics.add.sprite(400, 550, 'dude');
+    player = this.physics.add.sprite(400, 500, 'dude');
     player.setCollideWorldBounds(true);
 
     cursors = this.input.keyboard.createCursorKeys();
