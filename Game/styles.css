@@ -3,12 +3,10 @@ body {
     padding: 0;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     background-color: #ccff25;
 }
 #game-container {
     width: 800px;
-    height: 400px;
+    height: 600px;
 }
