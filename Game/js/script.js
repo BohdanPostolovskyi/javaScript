@@ -31,13 +31,13 @@ let objectGenerator;
 const game = new Phaser.Game(config);
 
 function preload() {
+    //this.load.image('ground', 'assets/platform.png'), { frameWidth: 50, frameHeight: 50 });
     this.load.image('background', 'assets/back.png');
-    //this.load.image('ground', 'assets/platform.png');
     this.load.image('sweet1', 'assets/sweet1.png');
     this.load.image('sweet2', 'assets/sweet2.png');
     this.load.image('sweet3', 'assets/sweet3.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 50, frameHeight: 50 });
+    this.load.spritesheet('dude', 'assets/dude.png');
 }
 
 function create() {
@@ -51,8 +51,8 @@ function create() {
     sweets = this.physics.add.group();
     bombs = this.physics.add.group();
 
-    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#fff' });
-    timerText = this.add.text(16, 50, 'Time: 0', { fontSize: '32px', fill: '#fff' });
+    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '40px', fill: '#fff' });
+    timerText = this.add.text(16, 50, 'Time: 0', { fontSize: '40px', fill: '#fff' });
 
     startTime = this.time.now;
 
@@ -76,9 +76,9 @@ function update() {
     timerText.setText('Time: ' + elapsed);
 
     if (cursors.left.isDown) {
-        player.setVelocityX(-400);
+        player.setVelocityX(-450);
     } else if (cursors.right.isDown) {
-        player.setVelocityX(400);
+        player.setVelocityX(450);
     } else {
         player.setVelocityX(0);
     }
@@ -125,8 +125,8 @@ function collectSweet(player, sweet) {
         gameOver = true;
         this.physics.pause();
         objectGenerator.remove();
-        this.add.text(500, 200, 'You Win!', { fontSize: '70px', fill: '#fff' });
-        this.add.text(500, 300, timerText.text, { fontSize: '50px', fill: '#fff' });
+        this.add.text(500, 200, 'You Win!', { fontSize: '80px', fill: '#fff' });
+        this.add.text(500, 300, timerText.text, { fontSize: '70px', fill: '#fff' });
     }
 }
 
@@ -139,6 +139,6 @@ function hitBomb(player, bomb) {
         gameOver = true;
         this.physics.pause();
         objectGenerator.remove();
-        this.add.text(500, 250, 'Game Over', { fontSize: '70px', fill: '#fff' });
+        this.add.text(500, 250, 'Game Over', { fontSize: '80px', fill: '#fff' });
     }
 }
