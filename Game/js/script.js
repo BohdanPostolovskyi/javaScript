@@ -1,7 +1,7 @@
 const config = {
     type: Phaser.AUTO,
     width: 800,
-    height: 400,
+    height: 600,
     parent: 'game-container',
     physics: {
         default: 'arcade',
@@ -47,8 +47,17 @@ function create() {
 
     cursors = this.input.keyboard.createCursorKeys();
 
-    sweets = this.physics.add.group();
-    bombs = this.physics.add.group();
+    sweets = this.physics.add.group({
+        removeCallback: function (sweet) {
+            sweet.scene.sweets.remove(sweet);
+        }
+    });
+
+    bombs = this.physics.add.group({
+        removeCallback: function (bomb) {
+            bomb.scene.bombs.remove(bomb);
+        }
+    });
 
     scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
     timerText = this.add.text(16, 50, 'Time: 0', { fontSize: '32px', fill: '#000' });
@@ -64,6 +73,12 @@ function create() {
 
     this.physics.add.overlap(player, sweets, collectSweet, null, this);
     this.physics.add.overlap(player, bombs, hitBomb, null, this);
+
+    // Додамо коллайдер з нижньою межею
+    this.physics.world.setBoundsCollision(true, true, true, true);
+
+    this.physics.add.collider(sweets, this.physics.world.bounds.bottom, removeObject, null, this);
+    this.physics.add.collider(bombs, this.physics.world.bounds.bottom, removeObject, null, this);
 }
 
 function update() {
@@ -103,23 +118,30 @@ function addFallingObject() {
 
 function collectSweet(player, sweet) {
     sweet.disableBody(true, true);
+    sweet.destroy();
     score += 1;
     scoreText.setText('Score: ' + score);
 
     if (score >= 30) {
         gameOver = true;
-        this.add.text(300, 150, 'You Win!', { fontSize: '64px', fill: '#000' });
-        this.add.text(300, 250, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
+        this.add.text(250, 150, 'You Win!', { fontSize: '64px', fill: '#000' });
+        this.add.text(250, 250, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
     }
 }
 
 function hitBomb(player, bomb) {
     bomb.disableBody(true, true);
+    bomb.destroy();
     score -= 5;
     scoreText.setText('Score: ' + score);
 
     if (score < 0) {
         gameOver = true;
-        this.add.text(300, 150, 'Game Over', { fontSize: '64px', fill: '#000' });
+        this.add.text(250, 150, 'Game Over', { fontSize: '64px', fill: '#000' });
     }
+}
+
+function removeObject(object) {
+    object.disableBody(true, true);
+    object.destroy();
 }
