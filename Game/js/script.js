@@ -125,8 +125,8 @@ function collectSweet(player, sweet) {
         gameOver = true;
         this.physics.pause();
         objectGenerator.remove();
-        this.add.text(400, 200, 'You Win!', { fontSize: '64px', fill: '#000' });
-        this.add.text(400, 250, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
+        this.add.text(500, 200, 'You Win!', { fontSize: '64px', fill: '#fff' });
+        this.add.text(500, 300, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#fff' });
     }
 }
 
@@ -139,6 +139,6 @@ function hitBomb(player, bomb) {
         gameOver = true;
         this.physics.pause();
         objectGenerator.remove();
-        this.add.text(400, 250, 'Game Over', { fontSize: '64px', fill: '#000' });
+        this.add.text(500, 250, 'Game Over', { fontSize: '64px', fill: '#fff' });
     }
 }
