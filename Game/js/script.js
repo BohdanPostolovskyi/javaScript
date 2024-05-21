@@ -28,6 +28,12 @@ let gameOver = false;
 let startTime;
 let objectGenerator;
 
+let textTimerDel
+let gameOverText;
+let winText;
+let restartButton;
+let mainPageButton;
+
 const game = new Phaser.Game(config);
 
 function preload() {
@@ -76,9 +82,9 @@ function update() {
     timerText.setText('Time: ' + elapsed);
 
     if (cursors.left.isDown) {
-        player.setVelocityX(-450);
+        player.setVelocityX(-500);
     } else if (cursors.right.isDown) {
-        player.setVelocityX(450);
+        player.setVelocityX(500);
     } else {
         player.setVelocityX(0);
     }
@@ -125,8 +131,10 @@ function collectSweet(player, sweet) {
         gameOver = true;
         this.physics.pause();
         objectGenerator.remove();
-        this.add.text(430, 200, 'You Win!', { fontSize: '80px', fill: '#fff' });
-        this.add.text(430, 300, timerText.text, { fontSize: '70px', fill: '#fff' });
+        winText = this.add.text(430, 200, 'You Win!', { fontSize: '80px', fill: '#fff' });
+        textTimerDel = this.add.text(430, 300, timerText.text, { fontSize: '70px', fill: '#fff' });
+
+        createButtons.call(this);
     }
 }
 
@@ -139,6 +147,51 @@ function hitBomb(player, bomb) {
         gameOver = true;
         this.physics.pause();
         objectGenerator.remove();
-        this.add.text(430, 250, 'Game Over', { fontSize: '80px', fill: '#fff' });
+        gameOverText = this.add.text(430, 250, 'Game Over', { fontSize: '80px', fill: '#fff' });
+        
+        createButtons.call(this);
     }
+}
+
+function createButtons() {
+    restartButton = this.add.text(430, 400, 'Restart', { fontSize: '40px', fill: '#fff' })
+        .setInteractive()
+        .on('pointerdown', () => {
+            restartGame.call(this);
+        });
+
+    mainPageButton = this.add.text(430, 450, 'Main Page', { fontSize: '40px', fill: '#fff' })
+        .setInteractive()
+        .on('pointerdown', () => {
+            window.location.href = 'index.html';
+        });
+}
+
+function restartGame() {
+    gameOver = false;
+    score = 0;
+    scoreText.setText('Score: ' + score);
+    startTime = this.time.now;
+
+    player.setPosition(400, 550);
+    player.setVelocity(0);
+    player.setActive(true);
+    player.setVisible(true);
+
+    if (gameOverText) gameOverText.destroy();
+    if (winText) winText.destroy();
+    if (textTimerDel) textTimerDel.destroy();
+    if (restartButton) restartButton.destroy();
+    if (mainPageButton) mainPageButton.destroy();
+
+    sweets.clear(true, true);
+    bombs.clear(true, true);
+
+    objectGenerator = this.time.addEvent({
+        delay: 1000,
+        callback: addFallingObject,
+        callbackScope: this,
+        loop: true
+    });
+    this.physics.resume();
 }
