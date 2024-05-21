@@ -83,14 +83,14 @@ function update() {
     }
 
     Phaser.Actions.Call(sweets.getChildren(), function(sweet) {
-        if (sweet.y > 565) {
+        if (sweet.y > 555) {
             sweet.disableBody(true, true);
             sweet.destroy();
         }
     }, this);
 
     Phaser.Actions.Call(bombs.getChildren(), function(bomb) {
-        if (bomb.y > 565) {
+        if (bomb.y > 555) {
             bomb.disableBody(true, true);
             bomb.destroy();
         }
