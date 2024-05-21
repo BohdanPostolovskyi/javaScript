@@ -81,6 +81,20 @@ function update() {
     } else {
         player.setVelocityX(0);
     }
+
+    Phaser.Actions.Call(sweets.getChildren(), function(sweet) {
+        if (sweet.y > 570) {
+            sweet.disableBody(true, true);
+            sweet.destroy();
+        }
+    }, this);
+
+    Phaser.Actions.Call(bombs.getChildren(), function(bomb) {
+        if (bomb.y > 570) {
+            bomb.disableBody(true, true);
+            bomb.destroy();
+        }
+    }, this);
 }
 
 function addFallingObject() {
@@ -106,10 +120,10 @@ function collectSweet(player, sweet) {
     score += 1;
     scoreText.setText('Score: ' + score);
 
-    if (score >= 30) {
+    if (score >= 10) {
         gameOver = true;
-        this.add.text(300, 300, 'You Win!', { fontSize: '64px', fill: '#000' });
-        this.add.text(300, 400, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
+        this.add.text(400, 200, 'You Win!', { fontSize: '64px', fill: '#000' });
+        this.add.text(400, 250, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
     }
 }
 
@@ -120,6 +134,6 @@ function hitBomb(player, bomb) {
 
     if (score < 0) {
         gameOver = true;
-        this.add.text(300, 300, 'Game Over', { fontSize: '64px', fill: '#000' });
+        this.add.text(400, 250, 'Game Over', { fontSize: '64px', fill: '#000' });
     }
 }
