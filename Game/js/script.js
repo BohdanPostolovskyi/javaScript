@@ -31,7 +31,7 @@ let objectGenerator;
 const game = new Phaser.Game(config);
 
 function preload() {
-    this.load.image('sky', 'assets/back.png');
+    this.load.image('background', 'assets/back.png');
     //this.load.image('ground', 'assets/platform.png');
     this.load.image('sweet1', 'assets/sweet1.png');
     this.load.image('sweet2', 'assets/sweet2.png');
@@ -41,7 +41,7 @@ function preload() {
 }
 
 function create() {
-    this.add.image(400, 300, 'sky');
+    this.add.image(500, 300, 'background');
 
     player = this.physics.add.sprite(400, 550, 'dude');
     player.setCollideWorldBounds(true);
