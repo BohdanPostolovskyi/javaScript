@@ -51,8 +51,8 @@ function create() {
     sweets = this.physics.add.group();
     bombs = this.physics.add.group();
 
-    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
-    timerText = this.add.text(16, 50, 'Time: 0', { fontSize: '32px', fill: '#000' });
+    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#fff' });
+    timerText = this.add.text(16, 50, 'Time: 0', { fontSize: '32px', fill: '#fff' });
 
     startTime = this.time.now;
 
@@ -126,7 +126,7 @@ function collectSweet(player, sweet) {
         this.physics.pause();
         objectGenerator.remove();
         this.add.text(500, 200, 'You Win!', { fontSize: '70px', fill: '#fff' });
-        this.add.text(500, 300, 'Time: ' + timerText.text, { fontSize: '50px', fill: '#fff' });
+        this.add.text(500, 300, timerText.text, { fontSize: '50px', fill: '#fff' });
     }
 }
 
