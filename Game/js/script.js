@@ -41,7 +41,7 @@ function preload() {
 }
 
 function create() {
-    this.add.image(680, 295, 'background');
+    this.add.image(610, 295, 'background');
 
     player = this.physics.add.sprite(400, 550, 'dude');
     player.setCollideWorldBounds(true);
