@@ -26,6 +26,7 @@ let scoreText;
 let timerText;
 let gameOver = false;
 let startTime;
+let objectGenerator;
 
 const game = new Phaser.Game(config);
 
@@ -55,8 +56,8 @@ function create() {
 
     startTime = this.time.now;
 
-    this.time.addEvent({
-        delay: 1000,
+    objectGenerator = this.time.addEvent({
+        delay: 500,
         callback: addFallingObject,
         callbackScope: this,
         loop: true
@@ -98,16 +99,16 @@ function update() {
 }
 
 function addFallingObject() {
-    const x = Phaser.Math.Between(50, 1030);
+    const x = Phaser.Math.Between(50, 1230);
     const type = Phaser.Math.Between(1, 4);
     let object;
 
     if (type === 4) {
         object = bombs.create(x, 10, 'bomb');
-        object.setVelocityY(200);
+        object.setVelocityY(300);
     } else {
         object = sweets.create(x, 10, 'sweet' + type);
-        object.setVelocityY(200);
+        object.setVelocityY(300);
     }
 
     object.setCollideWorldBounds(true);
@@ -122,6 +123,8 @@ function collectSweet(player, sweet) {
 
     if (score >= 10) {
         gameOver = true;
+        this.physics.pause();
+        objectGenerator.remove();
         this.add.text(400, 200, 'You Win!', { fontSize: '64px', fill: '#000' });
         this.add.text(400, 250, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
     }
@@ -134,6 +137,8 @@ function hitBomb(player, bomb) {
 
     if (score < 0) {
         gameOver = true;
+        this.physics.pause();
+        objectGenerator.remove();
         this.add.text(400, 250, 'Game Over', { fontSize: '64px', fill: '#000' });
     }
 }
