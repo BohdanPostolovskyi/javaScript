@@ -108,8 +108,8 @@ function collectSweet(player, sweet) {
 
     if (score >= 30) {
         gameOver = true;
-        this.add.text(300, 300, 'You Win!', { fontSize: '64px', fill: '#000' });
-        this.add.text(300, 400, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
+        this.add.text(300, 150, 'You Win!', { fontSize: '64px', fill: '#000' });
+        this.add.text(300, 250, 'Time: ' + timerText.text, { fontSize: '32px', fill: '#000' });
     }
 }
 
@@ -120,6 +120,6 @@ function hitBomb(player, bomb) {
 
     if (score < 0) {
         gameOver = true;
-        this.add.text(300, 300, 'Game Over', { fontSize: '64px', fill: '#000' });
+        this.add.text(300, 150, 'Game Over', { fontSize: '64px', fill: '#000' });
     }
 }
