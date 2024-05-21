@@ -31,13 +31,13 @@ let objectGenerator;
 const game = new Phaser.Game(config);
 
 function preload() {
-    //this.load.image('ground', 'assets/platform.png'), { frameWidth: 50, frameHeight: 50 });
+    //this.load.image('ground', 'assets/platform.png', { frameWidth: 50, frameHeight: 50 });
     this.load.image('background', 'assets/back.png');
     this.load.image('sweet1', 'assets/sweet1.png');
     this.load.image('sweet2', 'assets/sweet2.png');
     this.load.image('sweet3', 'assets/sweet3.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/dude.png'), { frameWidth: 50, frameHeight: 50 });
+    this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 50, frameHeight: 50 });
 }
 
 function create() {
