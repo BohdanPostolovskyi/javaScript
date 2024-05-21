@@ -83,14 +83,14 @@ function update() {
     }
 
     Phaser.Actions.Call(sweets.getChildren(), function(sweet) {
-        if (sweet.y > 570) {
+        if (sweet.y > 565) {
             sweet.disableBody(true, true);
             sweet.destroy();
         }
     }, this);
 
     Phaser.Actions.Call(bombs.getChildren(), function(bomb) {
-        if (bomb.y > 570) {
+        if (bomb.y > 565) {
             bomb.disableBody(true, true);
             bomb.destroy();
         }
@@ -98,7 +98,7 @@ function update() {
 }
 
 function addFallingObject() {
-    const x = Phaser.Math.Between(50, 750);
+    const x = Phaser.Math.Between(50, 1030);
     const type = Phaser.Math.Between(1, 4);
     let object;
 
