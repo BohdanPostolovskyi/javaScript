@@ -31,7 +31,7 @@ let objectGenerator;
 const game = new Phaser.Game(config);
 
 function preload() {
-    this.load.image('sky', 'assets/sky.png');
+    this.load.image('sky', 'assets/back.png');
     //this.load.image('ground', 'assets/platform.png');
     this.load.image('sweet1', 'assets/sweet1.png');
     this.load.image('sweet2', 'assets/sweet2.png');
