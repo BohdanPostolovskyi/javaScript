@@ -75,9 +75,9 @@ function update() {
     timerText.setText('Time: ' + elapsed);
 
     if (cursors.left.isDown) {
-        player.setVelocityX(-160);
+        player.setVelocityX(-400);
     } else if (cursors.right.isDown) {
-        player.setVelocityX(160);
+        player.setVelocityX(400);
     } else {
         player.setVelocityX(0);
     }
