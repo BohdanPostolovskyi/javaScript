@@ -84,7 +84,7 @@ function update() {
     }
 
     Phaser.Actions.Call(sweets.getChildren(), function(sweet) {
-        if (sweet.y > 555) {
+        if (sweet.y > 550) {
             sweet.disableBody(true, true);
             sweet.destroy();
         }
