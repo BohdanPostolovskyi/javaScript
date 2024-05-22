@@ -1,0 +1,42 @@
+[{
+  "id": 1,
+  "full_name": "Морозиво",
+  "short_name": "ice-cream",
+  "notes": "",
+  "url": "data/catalog/ice-cream.json"
+},
+{
+  "id": 2,
+  "full_name": "Торти",
+  "short_name": "cakes",
+  "notes": "",
+  "url": "data/catalog/cakes.json"
+},
+{
+  "id": 3,
+  "full_name": "Круасани",
+  "short_name": "croissant",
+  "notes": "",
+  "url": "data/catalog/croissants.json"
+},
+{
+  "id": 4,
+  "full_name": "Шоколад",
+  "short_name": "chocolate",
+  "notes": "",
+  "url": "data/catalog/chocolates.json"
+},
+{
+  "id": 5,
+  "full_name": "Печиво",
+  "short_name": "cookies",
+  "notes": "",
+  "url": "data/catalog/cookies.json"
+},
+{
+  "id": 6,
+  "full_name": "Сезонні",
+  "short_name": "season",
+  "notes": "",
+  "url": "data/catalog/season.json"
+}]

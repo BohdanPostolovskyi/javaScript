@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor - ваш магазин кондитерських виробів</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <link rel="icon" href="/images/Victor.ico">
+</head>
+<body>
+    <nav class="header">
+        <button class="header-burger" id="burger">
+            <span></span><span></span><span></span>
+        </button>
+        <ul id="left-side">
+            <li><img id="victor-logo" src="images/Victor.png"></li>
+            <li><hr></li>
+            <li><p id="navHomeButton">Головна</p></li>
+            <li><p id="navCatalogButton" onclick="$av.loadCatalogCategories();">Каталог</p></li>
+            <li><p onclick="$av.loadAboutUsHtml();">Про нас</p></li>
+            <li class="burger-only"><p>FAQ</p></li>
+            <li class="burger-only"><p onclick="$av.loadGameHtml();">Грати в гру</p></li>
+        </ul> 
+        <!--<img id="logo" src="images/LogoVictor.png">-->
+        <ul id="right-side">
+            <li><i class="material-symbols-outlined">person</i></li>
+            <li><i class="material-symbols-outlined">shopping_cart</i></li>
+            <li><i class="material-symbols-outlined">help</i></li>
+            <li><i class="material-symbols-outlined" onclick="$av.loadGameHtml();">sports_esports</i></li>
+            <a href="https://comp-sc.pnu.edu.ua/staff/artem-izmailov/" target="_blank">
+                <li  id="square-pnu"><img src="images/LogoPnu.png"></li>
+            </a>
+        </ul>
+        <img id="victor-logo-burger" src="images/Victor.png">
+    </nav>
+
+    <div id="main-page"></div>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Наш Сайт</h4>
+                    <ul>
+                        <li><a onclick="$av.loadCatalogCategories();">Каталог</a></li>
+                        <li><a onclick="$av.loadAboutUsHtml();">Про Нас</a></li>
+                        <li><a>FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Наша компанія</h4>
+                    <ul>
+                        <li><img src="images/LogoVictor.png"></li>
+                        <li><img src="images/LogoPnu.png"></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Наші творці</h4>
+                    <ul>
+                        <li><p>Мазярчук Денис</p></li>
+                        <li><p>Мартинюк Роман</p></li>
+                        <li><p>Постоловський Ярема</p></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyrights">Copyright © 2024 Victor</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/AjaxifyJS.js"></script>
+    <script src="js/vJSgame.js"></script>
+    <script src="js/PHgame.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+</body>
+</html>
