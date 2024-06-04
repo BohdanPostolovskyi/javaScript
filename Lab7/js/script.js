@@ -54,7 +54,7 @@
     });
 
     loadHomeHtml= function () {
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             homeHtml,
             function (responseText) {
                 switchActive("home");
@@ -69,7 +69,7 @@
     bh.loadRandomCategory = function() {
         showLoading("#main");
     
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             allCategoriesUrl,
             function(categories) {
                 const randomIndex = Math.floor(Math.random() * categories.length);
@@ -83,7 +83,7 @@
     bh.loadCatalogCategories = function () {
         showLoading("#main");
 
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             allCategoriesUrl,
             buildAndShowCategoriesHTML);
     };
@@ -91,14 +91,14 @@
     bh.loadCatalogItems = function (categoryShort) {
         showLoading("#main");
 
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             catalogItemsUrl + categoryShort + ".json",
             buildAndShowCatalogItemsHTML);
     };
 
 
     function buildAndShowCategoriesHTML (categories) {
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             categoryHtml,
             function (categoryHtml) {
                 switchActive("catalog");
@@ -129,10 +129,10 @@
 
 
     function buildAndShowCatalogItemsHTML (categoryCatalogItems) {
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             catalogItemsTitleHtml,
             function (catalogItemsTitleHtml) {
-                $ajaxifyJS.sendGetRequest(
+                $AjaxMegaSuperParser.sendGetRequest(
                     catalogItemHtml,
                     function (catalogItemHtml) {
                         switchActive("catalog");
