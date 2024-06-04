@@ -29,8 +29,6 @@
 
 
     document.addEventListener("DOMContentLoaded", function(event) {
-        const homeButton = document.querySelector("#navHomeButton");
-        const catalogButton = document.querySelector("#navCatalogButton");
         
         showLoading("#main");
         loadHomeHtml();
