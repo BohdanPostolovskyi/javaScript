@@ -16,8 +16,8 @@
     }
 
     const showLoading = function (selector) {
-        let html = "<div class='text-center'>";
-        html += "<img src='images/ajax-loader.gif'></div>";
+        let html = "<div class='text'>";
+        html += "<img src='images/1.gif'></div>";
         insertHtml(selector, html);
     }
 
