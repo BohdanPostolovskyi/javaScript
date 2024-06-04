@@ -144,7 +144,6 @@
             html = insertProperty(html, "catShortName", catShortName);
             html = insertProperty(html, "short_name", catalogItems[i].short_name);
             html = insertProperty(html, "full_name", catalogItems[i].full_name);
-            html = insertProperty(html, "author", catalogItems[i].author);
             html = insertProperty(html, "description", catalogItems[i].description);
             html = insertProperty(html, "price", catalogItems[i].price); 
             finalHtml += html;
