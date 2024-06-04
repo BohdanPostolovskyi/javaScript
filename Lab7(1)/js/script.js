@@ -27,21 +27,6 @@
         return string;
     }
 
-    const switchActive = function (activeElement) {
-        
-        const homeButton = document.querySelector("#navHomeButton");
-        const catalogButton = document.querySelector("#navCatalogButton");
-    
-        if (activeElement === "catalog") {
-            homeButton.classList.remove("active");
-            catalogButton.classList.add("active");
-        } else if (activeElement === "home") {
-            catalogButton.classList.remove("active");
-            homeButton.classList.add("active");
-        }    
-      
-    }
-
 
     document.addEventListener("DOMContentLoaded", function(event) {
         
@@ -54,10 +39,9 @@
     });
 
     loadHomeHtml= function () {
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             homeHtml,
             function (responseText) {
-                switchActive("home");
 
                 document.querySelector("#main").innerHTML = responseText;
             },
@@ -69,7 +53,7 @@
     bh.loadRandomCategory = function() {
         showLoading("#main");
     
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             allCategoriesUrl,
             function(categories) {
                 const randomIndex = Math.floor(Math.random() * categories.length);
@@ -83,7 +67,7 @@
     bh.loadCatalogCategories = function () {
         showLoading("#main");
 
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             allCategoriesUrl,
             buildAndShowCategoriesHTML);
     };
@@ -91,17 +75,16 @@
     bh.loadCatalogItems = function (categoryShort) {
         showLoading("#main");
 
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             catalogItemsUrl + categoryShort + ".json",
             buildAndShowCatalogItemsHTML);
     };
 
 
     function buildAndShowCategoriesHTML (categories) {
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             categoryHtml,
             function (categoryHtml) {
-                switchActive("catalog");
 
                 const categoriesViewHtml = buildCategoriesViewHtml(categories, categoryHtml);
                 insertHtml("#main", categoriesViewHtml);
@@ -129,13 +112,12 @@
 
 
     function buildAndShowCatalogItemsHTML (categoryCatalogItems) {
-        $ajaxifyJS.sendGetRequest(
+        $AjaxMegaSuperParser.sendGetRequest(
             catalogItemsTitleHtml,
             function (catalogItemsTitleHtml) {
-                $ajaxifyJS.sendGetRequest(
+                $AjaxMegaSuperParser.sendGetRequest(
                     catalogItemHtml,
                     function (catalogItemHtml) {
-                        switchActive("catalog");
 
                         const catalogItemViewHtml = buildCatalogItemsViewHtml(categoryCatalogItems, catalogItemsTitleHtml, catalogItemHtml);
                         insertHtml("#main", catalogItemViewHtml);
