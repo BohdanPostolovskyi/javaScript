@@ -1,6 +1,6 @@
 (function (global){
 
-    const bh = {};
+    const victor = {};
 
     const homeHtml = "snippets/home-snippets.html";
     const allCategoriesUrl = "data/categories.json";
@@ -50,7 +50,7 @@
     };
     
 
-    bh.loadRandomCategory = function() {
+    victor.loadRandomCategory = function() {
         showLoading("#main");
     
         $AjaxMegaSuperParser.sendGetRequest(
@@ -58,13 +58,13 @@
             function(categories) {
                 const randomIndex = Math.floor(Math.random() * categories.length);
                 const randomCategory = categories[randomIndex];
-                bh.loadCatalogItems(randomCategory.short_name);
+                victor.loadCatalogItems(randomCategory.short_name);
             }
         );
     };
     
 
-    bh.loadCatalogCategories = function () {
+    victor.loadCatalogCategories = function () {
         showLoading("#main");
 
         $AjaxMegaSuperParser.sendGetRequest(
@@ -72,7 +72,7 @@
             buildAndShowCategoriesHTML);
     };
 
-    bh.loadCatalogItems = function (categoryShort) {
+    victor.loadCatalogItems = function (categoryShort) {
         showLoading("#main");
 
         $AjaxMegaSuperParser.sendGetRequest(
@@ -153,7 +153,6 @@
         return finalHtml;
     }
 
-    global.$bh = bh;
+    global.$victor = victor;
 
 })(window)
-
