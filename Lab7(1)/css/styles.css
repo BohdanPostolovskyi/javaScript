@@ -50,17 +50,6 @@ footer p {
   color: #ffffff;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .h1 {
   padding: 20px;
 }
@@ -101,15 +90,15 @@ footer p {
   text-align: center;
 }
 
-.book-container {
+.tanks-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.book {
+.tanks {
   padding: 20px;
-  width: calc(50% - 20px);
+  width: calc(33.33% - 20px);
   background-color: #333;
   margin-bottom: 20px;
   display: flex;
@@ -120,21 +109,21 @@ footer p {
   color: white;
 }
 
-.book img {
-  max-width: 200px; /* Збільшено розмір зображення вдвічі */
+.tanks img {
+  max-width: 200px;
   height: auto;
   margin-bottom: 10px;
 }
 
-.book h2 {
+.tanks h2 {
   margin-top: 0;
 }
 
-.book p:last-child {
+.tanks p:last-child {
   margin-bottom: 0;
 }
 
-.book p {
+.tanks p {
   font-style: italic;
   margin: 5px 0;
   text-align: center;
@@ -161,7 +150,7 @@ footer p {
   overflow-x: hidden;
 }
 
-.hero {
+.main-page {
   position: relative;
   width: 100%;
 }
