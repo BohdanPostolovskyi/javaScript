@@ -136,12 +136,12 @@
         finalHtml += "<div class='catalog'>";
 
         const catalogItems = categoryCatalogItems.catalog_items;
-        const catShortName = categoryCatalogItems.category.short_name;
+        const ShortNameCatalog = categoryCatalogItems.category.short_name;
 
         for (let i = 0; i < catalogItems.length; i++) {
             
             let html = catalogItemHtml;
-            html = insertProperty(html, "catShortName", catShortName);
+            html = insertProperty(html, "ShortNameCatalog", ShortNameCatalog);
             html = insertProperty(html, "short_name", catalogItems[i].short_name);
             html = insertProperty(html, "full_name", catalogItems[i].full_name);
             html = insertProperty(html, "description", catalogItems[i].description);
