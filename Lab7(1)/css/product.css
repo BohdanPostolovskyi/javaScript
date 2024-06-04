@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #999999;
   color: #ffffff;
 }
 
@@ -35,7 +35,7 @@ nav .button:hover {
 
 #main {
   padding: 20px;
-  background-color: #d0d0d0;
+  background-color: #999999;
   min-height: 80vh;
 }
 
